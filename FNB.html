@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Bank App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ecde1afd, #05a59d);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00d6a8;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #06cc8a; /* Red background */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #008161; /* Darker red on hover */
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0;
+            color: #333;
+        }
+
+        #notifications {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+  
+    <form action="db.php" method="post" >
+
+    <div class="container">
+        <h1>FNB</h1>
+
+        <div id="bank">
+            <label for="depositAmount">Deposit Amount (Kwacha):</label>
+            <input type="number" id="depositAmount">
+            <button onclick="deposit()">Deposit</button>
+
+            <br>
+
+            <label for="withdrawAmount">Withdraw Amount (Kwacha):</label>
+            <input type="number" id="withdrawAmount">
+            <button onclick="withdraw()">Withdraw</button>
+
+            <br>
+
+            <p>Balance: Kw<span id="balance">0.00</span></p>
+            <div id="notifications"></div>
+
+            <a href="WaytoHome.html">
+                
+                <button>Go to Home page</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let balance = 0;
+        let totalDepositsThisMonth = 0; 
+        const taxRate = 0.04;
+        const monthlyLimit = 80000;
+        const notifications = document.getElementById("notifications");
+    
+        function deposit() {
+            const depositAmount = parseFloat(document.getElementById("depositAmount").value);
+            if (!isNaN(depositAmount) && depositAmount > 0) {
+                const afterTaxAmount = applyTax(depositAmount);
+                
+                if (totalDepositsThisMonth + afterTaxAmount <= monthlyLimit) {
+                    balance += afterTaxAmount;
+                    totalDepositsThisMonth += afterTaxAmount;
+                    updateBalance();
+                    showNotification(`Deposited Kw${afterTaxAmount.toFixed(2)} after tax`);
+                } else {
+                    showNotification("Deposit failed. Monthly limit reached.");
+                }
+            }
+        }
+    
+        function withdraw() {
+            const withdrawAmount = parseFloat(document.getElementById("withdrawAmount").value);
+            if (!isNaN(withdrawAmount) && withdrawAmount > 0 && withdrawAmount <= balance) {
+                balance -= withdrawAmount;
+                updateBalance();
+                showNotification(`Withdrawn Kw${withdrawAmount.toFixed(2)}`);
+            } else {
+                showNotification("Withdrawal failed. Insufficient funds or invalid amount.");
+            }
+        }
+    
+        function updateBalance() {
+            document.getElementById("balance").textContent = balance.toFixed(2);
+        }
+    
+        function showNotification(message) {
+            const notification = document.createElement("p");
+            notification.textContent = message;
+            notifications.appendChild(notification);
+            setTimeout(() => {
+                notifications.removeChild(notification);
+            }, 3000);
+        }
+    
+        function applyTax(amount) {
+            return amount - amount * taxRate;
+        }
+    </script>
+</body>
+</html>

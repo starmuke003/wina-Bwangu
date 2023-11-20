@@ -1,0 +1,87 @@
+
+  .body{
+    justify-content: center;
+
+  }
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: absolute;
+ 
+  font-size: 72px;
+ background: transparent;
+  color: #f1f1f1;   
+    padding: 10px 700px ;   
+    margin-left: 1000px;
+    border-radius: 20px;
+    backdrop-filter: blur(40px);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.input{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 72px;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+   font-weight: bold;
+  font-size: 350px;
+  padding: 70px;
+   background: transparent;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 400px;
+  border-radius: 150px;
+  margin-left: 350px;
+  font-family: Forte;
+  text-shadow: 30px 15px 0px rgb(114, 101, 139);
+  border: none;
+  transition: 1s;
+}
+
+#myBtn:hover {
+  opacity: 0.8;
+  color: rgb(3, 3, 95);
+  text-shadow: 30px 15px 0px rgb(17, 6, 37);
+
+  }
+    .slideshow-container {
+    position: fixed;
+    top: 1000px;
+    left: 1000px ;
+    
+}
+.slideshow-container {
+    position: fixed;
+    top: 1000px;
+    left: 1000px ;
+}
+
+
+  .mySlides {
+
+    display: none;
+    width: 3500px; /* Adjust this to your desired width */
+    height: 1500px; /* Adjust this to your desired height */
+    
+}
+.h1{
+   text-align: center;
+margin-top: 40px;
+margin-bottom: 40px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-weight: bold;
+text-shadow: 30px 15px 0px rgb(20, 12, 128);
+color: #fff;
+font-size: 170px;
+}
+
+

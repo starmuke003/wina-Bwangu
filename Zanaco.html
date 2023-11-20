@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Bank App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:linear-gradient(135deg, #f9ffa2, #e6ff09);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #8B0000;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #FF0000; /* Red background */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8B0000; /* Darker red on hover */
+        }
+
+        p {
+            font-size: 18px;
+            margin: 0;
+            color: #333;
+        }
+
+        #notifications {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+  
+
+
+        <div class="container">
+        <h1>ZANACO</h1>
+
+        <div id="bank">
+            <label for="depositAmount">Deposit Amount (Kwacha):</label>
+            <input type="number" id="depositAmount">
+            <button onclick="deposit()">Deposit</button>
+
+            <br>
+
+            <label for="withdrawAmount">Withdraw Amount (Kwacha):</label>
+            <input type="number" id="withdrawAmount">
+            <button onclick="withdraw()">Withdraw</button>
+
+            <br>
+
+            <p>Balance: Kw<span id="balance">0.00</span></p>
+            <div id="notifications"></div>
+
+ 
+            <a href="WaytoHome.html">
+                <button>Go to Home page</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let balance = 0;
+        let totalDepositsThisMonth = 0; 
+        const taxRate = 0.035;
+        const monthlyLimit = 80000;
+        const notifications = document.getElementById("notifications");
+    
+        

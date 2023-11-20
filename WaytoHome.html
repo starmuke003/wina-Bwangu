@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> way to homepage</title>
+<style>
+  .body{
+    justify-content: center;
+
+  }
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: absolute;
+ 
+  font-size: 72px;
+ background: grey;
+  color: #f1f1f1;   
+    padding: 25px 710px ;   
+    margin-left: 1000px;
+    border-radius: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.input{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 72px;
+}
+
+/* Style the button used to pause/play the video */
+#myBtn {
+   font-weight: bold;
+  font-size: 350px;
+  padding: 70px;
+   background: transparent;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 400px;
+  border-radius: 150px;
+  margin-left: 350px;
+  font-family: Forte;
+  text-shadow: 30px 15px 0px rgb(114, 101, 139);
+  border: none;
+  transition: 1s;
+}
+
+#myBtn:hover {
+  opacity: 0.8;
+  color: rgb(3, 3, 95);
+  text-shadow: 30px 15px 0px rgb(17, 6, 37);
+
+  }
+    .slideshow-container {
+    position: fixed;
+    top: 1000px;
+    left: 1000px ;
+    
+}
+.slideshow-container {
+    position: fixed;
+    top: 1000px;
+    left: 1000px ;
+    color: #f1f1f1;
+}
+
+
+  .mySlides {
+
+    display: none;
+    width: 3500px; /* Adjust this to your desired width */
+    height: 1500px; /* Adjust this to your desired height */
+    
+}
+.h1{
+   text-align: center;
+margin-top: 40px;
+margin-bottom: 40px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-weight: bold;
+text-shadow: 30px 15px 0px rgb(20, 12, 128);
+color: #fff;
+font-size: 170px;
+}
+
+</style>
+<script>
+  // Get the video
+  var video = document.getElementById("myVideo");
+  
+  // Get the button
+  var btn = document.getElementById("myBtn");
+  
+  // Pause and play the video, and change the button text
+  function myFunction() {
+    if (video.paused) {
+      video.play();
+      btn.innerHTML = "Pause";
+    } else {
+      video.pause();
+      btn.innerHTML = "Play";
+    }
+  }
+  </script>
+</head>
+<body>
+
+
+  
+  <video autoplay muted loop id="myVideo">
+    <source src="fiber_-_121805 (1440p).mp4" type="video/mp4">
+  </video>
+ 
+
+  
+  <a href="info.html">
+    <div  class="slideshow-container">
+        <img class="mySlides" src="airtel.webp">
+        <img class="mySlides" src="BM-Ray-MTN-option-3-1024x512.jpg">
+        <img class="mySlides" src="Zamtel.jpg">
+        <img class="mySlides" src="Zambia-National-Commercial-Bank-Zanaco-Headquarters-in-Lusaka-Zambia.png">
+        <img class="mySlides" src="FNB.jpg">
+        </div></a>
+        
+        <div class="content">
+
+    <h1 class="h1">WELCOME TO WINA BWANGU</h1>
+    
+
+    <script src="script.js"></script>
+    <label for="mobileBoothSelect">Select Mobile Booth:</label>
+    <select class="input" id="mobileBoothSelect">
+        <option value="Please_select_booth">"Please select booth"</option>
+        <option value="Wina1">Wina1</option>
+        <option value="Wina2">Wina2</option>
+        <option value="Wina3">Wina3</option>
+        <option value="Wina4">Wina4</option>
+        <option value="Wina5">Wina5</option>
+        <option value="Wina6">Wina6</option>
+      </select>
+
+      <br>
+  
+      <label for="location">Location:</label>
+      <span  id="location"></span>
+  
+      <br>
+
+  
+  
+      <label for="serviceSelect">Select Service:</label>
+      <select class="input" id="serviceSelect">
+      </select>
+  
+      <br>
+  
+      <label for="revenue">Revenue Per Kwacha:</label>
+      <input class="input" type="text" id="revenue" readonly>
+  
+      <script>
+     
+          const mobileBoothSelect = document.getElementById("mobileBoothSelect");
+          const locationSpan = document.getElementById("location");
+          const serviceSelect = document.getElementById("serviceSelect");
+          const revenueInput = document.getElementById("revenue");
+  
+          const mobileBoothLocationMap = {
+            Please_select_booth:"",
+              Wina1: "Lusaka CPD",
+              Wina2: "Libala",
+              Wina3: "Kabwata",
+              Wina4: "Mandevu",
+              Wina5: "Woodlands",
+              Wina6: "Matero East",
+            };
+  
+  const servicesOfferedMap = {
+    Please_select_booth:"",
+      Wina1: ["Please_select_booth","Airtel Money", "MTN Money", "Zamtel Money", "Zanaco", "FNB"],
+      Wina2: ["Please_select_booth","Airtel Money", "MTN Money", "Zamtel Money", "FNB"],
+      Wina3: ["Please_select_booth","Airtel Money", "MTN Money", "Zamtel Money", "Zanaco", "FNB"],
+      Wina4: ["Please_select_booth","Airtel Money", "MTN Money", "Zamtel Money"],
+      Wina5: ["Please_select_booth","Airtel Money", "MTN Money", "Zanaco", "FNB"],
+      Wina6: ["Please_select_booth","Airtel Money", "MTN Money", "Zamtel Money"],
+  };
+
+  const serviceRevenueMap = {
+   
+      "Please_select_booth": 0.00,
+      "Airtel Money": 0.05,
+      "MTN Money": 0.06,
+      "Zamtel Money": 0.045,
+      "Zanaco": 0.035,
+      "FNB": 0.04,
+  };
+  
+          mobileBoothSelect.addEventListener("change", function () {
+              const selectedMobileBooth = mobileBoothSelect.value;
+              if (selectedMobileBooth in mobileBoothLocationMap) {
+                  locationSpan.textContent = mobileBoothLocationMap[selectedMobileBooth];
+                  populateServicesDropdown(selectedMobileBooth);
+              } else {
+                  locationSpan.textContent = "";
+                  clearServicesDropdown();
+              }
+          });
+  
+          serviceSelect.addEventListener("change", function () {
+              const selectedService = serviceSelect.value;
+              if (selectedService in serviceRevenueMap) {
+                  revenueInput.value = serviceRevenueMap[selectedService].toFixed(2);
+              } else {
+                  revenueInput.value = "";
+              }
+          });
+  
+          function populateServicesDropdown(selectedMobileBooth) {
+              const availableServices = servicesOfferedMap[selectedMobileBooth] || [];
+              serviceSelect.innerHTML = "";
+              availableServices.forEach((service) => {
+                  const option = document.createElement("option");
+                  option.value = service;
+                  option.textContent = service;
+                  serviceSelect.appendChild(option);
+              });
+          }
+  
+          function clearServicesDropdown() {
+              serviceSelect.innerHTML = "";
+          }
+            generateTransactionID(); // Regenerate TransactionID when service changes
+      
+
+        // Function to generate TransactionID
+        function generateTransactionID() {
+            if (transactionCounter <= 1000) {
+                const selectedMobileBooth = mobileBoothSelect.value;
+                const selectedService = serviceSelect.value;
+                const paddedCounter = String(transactionCounter).padStart(7, "0"); // Pad the counter with leading zeros
+
+                // Create the TransactionID by combining booth, service, and counter
+                const transactionID = `WB${paddedCounter}-${selectedMobileBooth}-${selectedService}`;
+
+                transactionIDInput.value = transactionID; // Set the TransactionID in the input field
+
+                transactionCounter++; // Increment the transaction counter for the next transaction
+            } else {
+                alert("Transaction limit reached (WB0001000)."); // Alert when the limit is reached
+            }
+        }
+
+        // Initial TransactionID generation
+        generateTransactionID();
+        
+    </script>
+
+<script>
+  serviceSelect.addEventListener("change", function () {
+      const selectedService = serviceSelect.value;
+      if (selectedService in serviceRevenueMap) {
+          revenueInput.value = serviceRevenueMap[selectedService].toFixed(2);
+
+        
+          setTimeout(function () {
+                
+                switch (selectedService) {
+                    case "Airtel Money":
+                        window.location.href = 'airtel_money.html';
+                        break;
+                    case "MTN Money":
+                        window.location.href = 'mtn_money.html';
+                        break;
+                    case "Zamtel Money":
+                        window.location.href = 'zamtel_money.html';
+                        break;
+                        case "Zanaco":
+                        window.location.href = 'Zanaco.html';
+                        break;
+                        case "FNB":
+                        window.location.href = 'FNB.html';
+                        break;
+                    revenueInput.value = "";
+                }
+            }, 3500)
+      
+      }
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
